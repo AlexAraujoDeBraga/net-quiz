@@ -38,10 +38,12 @@ form = document.querySelector('#form');
 botao = document.querySelector('#btn-salvar');
 respostaCorreta = "";
 numeroPergunta = 1;
+pontos = 0;
 questoesCertas = 0;
 questoesErradas = 0;
 
 document.getElementById("numeroPergunta").innerHTML = numeroPergunta;
+document.getElementById("pontos").innerHTML = pontos;
 // document.getElementById("questoesCertas").innerHTML = questoesCertas;
 // document.getElementById("questoesErradas").innerHTML = questoesErradas;
 
@@ -134,18 +136,26 @@ botao.addEventListener('click', function (event) {
     event.preventDefault();
     radioSelecionado = document.querySelector('input[name="alternative"]:checked').value; 
     
+    if (numeroPergunta > 9) {
+        direcionaParaPaginaResult(pontos);    
+    }
     
     if (respostaCorreta === radioSelecionado) {
         $('#alert-red').css({display: "none"});
         $('#alert-gray').css({display: "none"});
         $('#alert-green').css({display: "block"});
-        numeroPergunta += numeroPergunta;
+        numeroPergunta += 1;
+        pontos += 10;
+        document.getElementById("pontos").innerHTML = pontos;
         document.getElementById("numeroPergunta").innerHTML = numeroPergunta;
         getQuestions();
     } else if (respostaCorreta != radioSelecionado){
         $('#alert-green').css({display: "none"});
         $('#alert-red').css({display: "block"});
         $('#alert-gray').css({display: "none"});
+        getQuestions();
+        numeroPergunta += 1;
+        document.getElementById("numeroPergunta").innerHTML = numeroPergunta;
     } 
 
 });
@@ -154,4 +164,9 @@ function atualizaResultados() {
     document.getElementById("numeroPergunta").innerHTML = numeroPergunta;
     document.getElementById("questoesCertas").innerHTML = questoesCertas;
     document.getElementById("questoesErradas").innerHTML = questoesErradas;
+}
+
+function direcionaParaPaginaResult(pontos) {
+    sessionStorage.setItem('pontos', pontos);
+    window.location.href = "resultado.html";
 }
