@@ -1,0 +1,49 @@
+* {
+  font-family: "Josefin Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f995 !important;
+  color: #000 !important;
+}
+body h1 {
+  margin-top: 2em;
+  font-size: 3.5em;
+  color: #137759 !important;
+  text-align: center;
+}
+body h2, body h3 {
+  margin-top: 1em;
+  margin-bottom: 3em;
+  color: #137759 !important;
+  text-align: center;
+}
+body p {
+  color: #000 !important;
+}
+
+.lista-opcoes {
+  display: flex;
+  justify-content: space-around;
+}
+.lista-opcoes ul {
+  list-style-type: none;
+}
+.lista-opcoes ul li {
+  cursor: pointer;
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+.lista-opcoes ul li a {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: #000 !important;
+}
+.lista-opcoes ul li a:hover {
+  color: #137759 !important;
+}
+
+/*# sourceMappingURL=styles.css.map */

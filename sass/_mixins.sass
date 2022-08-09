@@ -1,0 +1,16 @@
+@use 'variables'
+
+@mixin container
+	max-width: variables.$container-width
+	padding: 1.5rem 0
+	margin: 0 auto
+
+@mixin bg-img($img)
+	background-image: url('../assets/#{$img}')
+	background-size: 100%
+	filter:grayscale(100%)
+	box-sizing: border-box
+
+@mixin config-title  
+	color: variables.$secondary-color
+	text-align: center

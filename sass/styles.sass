@@ -1,0 +1,43 @@
+@use 'variables'
+@use 'mixins'
+
+* 
+	font-family: 'Josefin Sans', sans-serif
+	padding: 0
+	margin: 0
+	box-sizing: border-box
+
+body
+	background-color: variables.$bg-color
+	color: variables.$primary-color	
+	// @include mixins.container
+
+	h1
+		margin-top: 2em
+		font-size: 3.5em
+		@include mixins.config-title
+	h2, h3
+		margin-top: 1em
+		margin-bottom: 3em
+		@include mixins.config-title
+	p
+		color: variables.$primary-color
+
+.lista-opcoes
+	display: flex
+	justify-content: space-around
+
+	ul
+		list-style-type: none
+		li
+			cursor: pointer
+			margin-top:1em
+			margin-bottom:3em
+			a
+				text-decoration: none
+				font-size: 1.5em
+				color: variables.$primary-color
+				&:hover
+					color: variables.$secondary-color
+		// #foto-1
+		// 	@include mixins.bg-img('animation.png')
